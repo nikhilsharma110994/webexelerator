@@ -1,0 +1,53 @@
+Domain Definition
+Domain: Online Food Delivery Platform
+Purpose: Facilitate the connection between users (customers) and restaurants, allowing users to browse, search, and order food online.
+
+Sub-Domains or Bounded Contexts
+1. User Management (Core Domain)
+    * Handles user authentication, registration, and profile management.
+2. Restaurant Management (Core Domain)
+    * Manages restaurant registration, profile, menu management, and updates.
+3. Search and Browse (Core Domain)
+    * Provides the functionality to browse restaurants and search by food types.
+4. Order Management (Core Domain)
+    * Facilitates order placement, tracking, and management.
+
+Not considered Notification (supportive domain) and Payment (Generic Domain) due to the scope of the project.
+
+Domain Decomposition
+Core Domains
+1. User Management Context
+    * Entities: User, Profile
+    * Aggregates: User
+    * Services: Authentication, Profile Management
+    * Behaviors:
+        * Register User (confirm for scope for register and update profile)
+        * Authenticate User
+        * Update Profile
+    * Expected Solution: Implement a secure authentication system with features for user registration, login, and profile updates. Ensure data privacy and protection.
+2. Restaurant Management Context
+    * Entities: Restaurant, Menu, Food Item, Category
+    * Aggregates: Restaurant
+    * Services: Onboarding, Menu Management
+    * Behaviors:
+        * Register Restaurant
+        * Manage Menu
+        * Update Restaurant Profile
+    * Expected Solution: Develop an onboarding process for restaurants to register, create profiles, and manage their menus. Provide interfaces for updating restaurant details and menu items.
+3. Search and Browse Context
+    * Entities: Restaurant, FoodType, SearchQuery
+    * Aggregates: Search
+    * Services: Restaurant Search, Food Type Search
+    * Behaviors:
+        * Browse Restaurants
+        * Search by Food Type
+    * Expected Solution: Implement a robust search engine to enable users to browse restaurants and search by food types. Use efficient algorithms to provide fast and relevant search results.
+4. Order Management Context
+    * Entities: Order, OrderItem
+    * Aggregates: Order
+    * Services: Order Placement
+    * Behaviors:
+        * Place Order
+        * Track Order Status (confirm for scope for track order and update)
+        * Update Order
+    * Expected Solution: Build a seamless order management system that allows users to place orders.
