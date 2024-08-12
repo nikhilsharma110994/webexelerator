@@ -1,0 +1,34 @@
+Activity: In the capstone, think of "a" module wherein you can implement Protobuf [Thought process + Define scenarios + Define a quick protobuf schema] [DDD ---> gRPC]
+ 
+Thought process behind finding and implementing Protobuf with gRPC:-
+ 
+Choose services where performance and data consistency are critical.
+Consider scenarios with frequent inter-service communication.
+gRPC is well-suited for microservices needing high throughput and low latency.
+Identify scenarios which will benefit from Protobuf's efficiency (binary serialized data format) and type safety.
+ 
+Define Scenario in Online Food Delivery (Capstone):-
+When a user places an order, the Order Service needs to communicate with the Restaurant Service to confirm menu items' availability and then process the payment through the Payment Service. After payment confirmation, it notifies the Notification Service to inform the user.
+Here it satisfies all the major points mentioned in our thought process like efficient serialization of complex order data, low-latency communication between services and strong type safety ensures consistent data structures across services.
+Protobuf schema for order service (filename will be order.proto):-
+syntax = "proto3";
+ 
+package order;
+ 
+// Order message to represent an order
+message Order {
+  string id = 1;
+  string userId = 2;
+  string restaurantId = 3;
+  repeated OrderItem items = 4;
+  double totalAmount = 5;
+  string status = 6;
+}
+ 
+// OrderItem message to represent items in an order
+message OrderItem {
+  string itemId = 1;
+  string name = 2;
+  int32 quantity = 3;
+  double price = 4;
+}

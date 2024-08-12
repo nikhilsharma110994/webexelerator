@@ -1,0 +1,25 @@
+Activity: Quick check on the capstone modules related to DDD, which of the features might require Mutual Exclusivity at the DB or at the file sharing level [read vs write need not happen concurrently]
+ 
+Features Requiring Mutual Exclusivity for Online food Delivery Platform (Capstone):-
+ 
+1. Order Management Context
+Order management is one of the most critical aspects of an online food delivery platform, where mutual exclusivity plays a significant role.
+Order Placement:
+Reason: When a user places an order, the system needs to ensure that the inventory is updated accurately and the order details are recorded correctly without interference from other concurrent operations.
+Example Scenario: Two users ordering the last item of a dish at the same time could lead to one order being unfulfilled if not managed properly.
+ 
+2. Restaurant Management Context
+Managing restaurant data, especially menu items and availability, requires careful handling of concurrent access.
+Menu Management:
+Reason: Updates to the menu, such as price changes or availability, should be handled exclusively to ensure users see accurate and current information.
+Example Scenario: If two restaurant managers or admin are updating the same menu item simultaneously, it could result in conflicting information being displayed to users.
+Restaurant Profile Updates:
+Reason: Changes to the restaurant's profile should be synchronized to maintain data integrity across the platform.
+Example Scenario: Simultaneous updates could lead to profile discrepancies, such as location or contact information errors.
+ 
+3. User Management Context
+Profile Updates:
+Reason: When users update their profiles, such as changing their email address or password, it should be done exclusively to ensure data consistency.
+Example Scenario: Concurrent updates (from user or admin) could lead to profile corruption, resulting in users being unable to access their accounts correctly.
+ 
+Not considered Notification (duplicate notification case) and Payment modules (duplicate transaction case) due to limited scope of capstone.

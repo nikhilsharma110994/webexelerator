@@ -1,0 +1,31 @@
+Case Study: High Priority Topics [comes with bigger picture of EDA] :
+
+a. Strong consistency vs Eventual Consistency
+b. Idempotency
+c. Pessimistic Locking
+
+Start mapping the above with the capstone requirement. 
+
+
+Services or Use Cases where we can implement mentioned points:-
+
+Strong Consistency
+
+Order Service: Ensuring that once an order is placed, all related data (inventory, payment status) reflects the current state immediately.
+Payment Service: Guaranteeing that transactions are processed with up-to-date balances.
+
+
+Eventual Consistency
+
+Search Service: User search queries might return stale results for a brief period, but the system eventually updates to reflect the most current data.
+Notification Service: Notifications about order status might be delayed but will eventually reach the user.
+
+Idempotency
+
+Order Service: Ensuring that duplicate order submissions result in a single order.
+Payment Service: Handling repeated payment requests without charging the user multiple times.
+User Service: Ensuring that multiple account creation requests result in only one account.
+
+Pessimistic Locking
+
+Order Service: Locking items during order processing to prevent overselling.

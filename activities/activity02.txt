@@ -1,0 +1,38 @@
+First Example:  DDD + CQRS
+
+Tried running various commands mentioned in the link.
+
+Understood the example through the code and doc, got to know about the need of breaking our application based on four layers, Domain, Application, Interface, and Infrastructure layer. How CQRS is implemented by dividing functionalities based on commands or mutation (involves create, update, and delete operation) and queries (involves read operation)
+
+Got the understanding of developing the code architecture based DDD and CQRS pattern as implemented for Accounts and Notification modules. Tried hands on Docker as well for downloading existing or building new docker images and later creating and running the container for it.
+
+
+
+Second Example: Clean Architecture Nestjs
+
+This also implements DDD on top level, as business entities at domain layer, use cases or business logic at Application layer, gateways or controllers serving as Interface layer for Application Layer and then comes Framework where in all the UI, DB connection are happening serving as Infrastructure Layer.
+
+
+But the key insight of this architecture is to protect core business logic from changes in technology, making it easier to adapt and test applications without compromising on the integrity of the core logic.
+
+•  Core Focus: The architecture prioritizes business logic over frameworks, ensuring that the core application logic remains unchanged regardless of technological choices.
+
+•  Framework Independence: The inner layers are designed to be independent of external tools, allowing for flexibility in changing databases, UI frameworks, or other technologies without affecting business logic.
+
+•  Easy Testing: By decoupling business logic from implementation details, the architecture supports easier testing and maintenance.
+
+Tried connecting this with MongoDB Atlas, added Document and same was reflecting through API for authors module.
+
+Repo link which I used was https://github.com/royib/clean-architecture-nestJS
+ 
+Steps for setup:-
+ 
+Cloned the Repo
+Created 1 cluster with name: training-cluster
+Downloaded the connection string
+Whitelisted my current IP Address
+Ran command export CLEAN_NEST_MONGO_CONNECTION_STRING='mongodb+srv://nikhilsharma110994:<password>@training-cluster.vd7tsre.mongodb.net/?retryWrites=true&w=majority&appName=training-cluster’ with changing <password> to my set password.
+npm install
+npm start
+Added document in mongo atlas for author collection
+Then went to URL: http://localhost:3000/api/author and it showed the document successfully added from the mongo Atlas.

@@ -1,0 +1,16 @@
+Attaching results for both autocannon case study.
+ 
+ 
+Case study 1: autocannon example with NestJS Interceptor : Analyze the result for Redis + Blocking/Non-blocking
+ 
+Analyzed the result for the Redis + Blocking/Non-blocking of NestJS interceptor example and also validated through this medium article https://betterprogramming.pub/improve-response-time-10x-by-introducing-an-interceptor-in-nestjs-590695692360. With Redis localhost, blocking queue is much faster as compared to non-blocking approach.  Latency (Delay) is higher for non-blocking which needs to be less and RPM (Request per minute) is less which needs to be more.
+ 
+After reading the article, got an understanding that when we have Redis hosted on a Prod env, it involves network latency as well. So, in that case non-blocking workflow will be faster.
+ 
+ 
+ 
+Case study 2: Autocannon example with Clean-Architecture Interceptor : Analyze the request for MongoDB request
+ 
+Analysis was conducted on the author module (data available in Mongo) and the book module (data unavailable in Mongo) using 60-second intervals (60 samples) and two sets of concurrent connections: 100 and 50. 
+ 
+It was observed that latency (delay) increases with higher percentiles and more concurrent connections. For the book module, the Requests Per Minute (RPM) is higher, likely due to the lack of data, and it increases with the number of concurrent connections. 
