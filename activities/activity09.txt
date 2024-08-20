@@ -1,0 +1,25 @@
+Case Study: In the capstone, what would be the Docker strategy : 
+
+Deploying the services : <per host> OR <shared host> 
+
+How to use Docker deployment in the Capstone project : Which pattern is best suited for the services in the capstone project
+
+
+
+For a real-world production deployment of an online food ordering platform, the per host deployment strategy is generally preferred:
+
+Why Per Host:
+
+Scalability: Services like order processing, user management, and search can have varying demands.
+Independent scaling ensures each service can handle its specific load.
+Security and Isolation: Enhanced isolation is critical for protecting sensitive data (e.g., payment processing) and minimizing the impact of vulnerabilities.
+Service Resilience: Isolating services on separate hosts reduces the risk of a single point of failure affecting multiple services.
+
+
+Practical Implementation:
+
+Start with critical services like user, search and order on dedicated hosts.
+Use shared hosts for non-critical services (e.g., notifications) if needed, to optimize costs while maintaining performance.
+
+
+In summary, the per host deployment pattern is best suited for a real-world environment, especially for a scalable, secure, and high-traffic online food ordering platform.
